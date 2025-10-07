@@ -60,8 +60,8 @@ def getData(file_name: str) -> dict:
     data["size_px"] = colored([str(i)+"px" for i in img.size], color="white")
 
     img_size = os.path.getsize(path)
-    data["Size_kB"] = colored(str(round(img_size/ 1024 , 2)) + "kB", color="white")
-    data["Size_MB"] = colored(str(round(img_size / (1024 * 1024), 2)) + "MB", color="white")
+    data["Size_KB"] = colored(str(round(img_size/ 1000 , 2)) + "KB", color="white")
+    data["Size_MB"] = colored(str(round(img_size / (1000 * 1000), 2)) + "MB", color="white")
 
     return data
 
@@ -79,4 +79,5 @@ if __name__ == "__main__":
 #         metadata = getData(file)
 #         print(colored(f"\n{file}", color="yellow"))
 #         for key, value in metadata.items():
+
 #             print(f"{key}: {value}")
