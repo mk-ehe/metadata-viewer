@@ -30,13 +30,13 @@ def getData(file_name: str) -> dict:
                 name = GPSTAGS.get(key, key)
                 gps_data[name] = val
 
-            def convert_to_degrees(value):
+            def convertToDegrees(value):
                 d, m, s = value
                 return d[0] / d[1] + (m[0] / m[1]) / 60 + (s[0] / s[1]) / 3600
 
             try:
-                lat = convert_to_degrees(gps_data["GPSLatitude"])
-                lon = convert_to_degrees(gps_data["GPSLongitude"])
+                lat = convertToDegrees(gps_data["GPSLatitude"])
+                lon = convertToDegrees(gps_data["GPSLongitude"])
 
                 data["Latitude"] = colored(round(lat, 6), color="green")
                 data["Longitude"] = colored(round(lon, 6), color="green")
@@ -81,3 +81,4 @@ if __name__ == "__main__":
 #         for key, value in metadata.items():
 
 #             print(f"{key}: {value}")
+
